@@ -10,20 +10,20 @@ const mongoose = require('mongoose');
 //     {id:4,name:"Comedy"},
 //   ];
 
-mongoose.connect('mongodb://localhost/VideoClub')
-    .then(() => console.log('Connected to DB....'))
-    .catch(() => console.error('Error connecting to DB...'));
 
 const genreSchema = new mongoose.Schema({
     //id: { type: mongoose.SchemaTypes.ObjectId, required: true },
-    name: { type: String, required: true, min: 5 }
+    name: {
+        type: String,
+        required: true,
+        min: 5
+    }
 });
 
 const Genre = mongoose.model('Genre', genreSchema);
 
 router.get('/', (req, res) => {
     Genre.find()
-        .select({ name: 1 })
         .then((genres) => res.send(genres))
         .catch((err) => res.status(400).send(err));
 
@@ -89,8 +89,8 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     Genre.findByIdAndDelete(req.params.id)
-    .then(result => res.send(result));
-    
+        .then(result => res.send(result));
+
     // let genre = genres.find(g => g.id === +req.params.id);
 
     // if (!genre) return res.status(404).send('The given genre is was not found');
