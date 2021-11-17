@@ -2,7 +2,7 @@ const {Genre, validate} = require('../models/genres')
 const express = require('express');
 const Joi = require('joi');
 const router = express.Router();
-const mongoose = require('mongoose');
+
 
 router.get('/', (req, res) => {
     Genre.find()
