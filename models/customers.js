@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Joi = require('Joi');
 
-const Customer = mongoose.model('customer', new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
     name: {
         type: String,
         min: 5,
@@ -15,7 +15,9 @@ const Customer = mongoose.model('customer', new mongoose.Schema({
         type: String,
         min: 10
     }
-}));
+});
+
+const Customer = mongoose.model('customer', customerSchema);
 
 function validateCustomer(customer) {
     const schema = Joi.object({
