@@ -10,10 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.6",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "fawn": "^2.1.5",
     "joi": "^17.4.2",
     "joi-objectid": "^4.0.2",
-    "mongoose": "^5.13.13"
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.13",
+    "winston": "^3.3.3"
   }
 }
