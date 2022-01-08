@@ -4,19 +4,23 @@ const express = require('express');
 const admin = require('../middlewares/admin');
 //const Joi = require('joi');
 const router = express.Router();
+const validateObjectId = require('../middlewares/validateObjectId');
 
 router.get('/', (req, res) => {
-  throw new Error('test');
   Genre.find()
     .then((genres) => res.send(genres))
     .catch((err) => res.status(400).send(err));
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', validateObjectId, (req, res) => {
   const id = req.params.id;
   Genre.findById(id)
-    .then((genre) => res.send(genre))
-    .catch(() => res.status(404).send(`The given genre was not found`));
+    .then((genre) => {
+      if (genre) return res.send(genre);
+
+      return res.status(404).send('a genre with the given id was not found');
+    })
+    .catch(() => res.status(500).send(`Internal server error`));
 });
 
 router.post('/', auth, (req, res) => {
