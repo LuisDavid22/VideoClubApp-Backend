@@ -2,7 +2,6 @@ const auth = require('../middlewares/auth');
 const { Customer, validate } = require('../models/customers');
 const express = require('express');
 const mongoose = require('mongoose');
-const Joi = require('Joi');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
