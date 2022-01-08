@@ -1,4 +1,3 @@
 {
-  "jwtPrivateKey": "test",
   "db": "mongodb://localhost/VideoClub"
 }
