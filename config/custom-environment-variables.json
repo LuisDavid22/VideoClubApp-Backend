@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey":"VideoClupApp_jwtPrivateKey"
+  "jwtPrivateKey": "VideoClupApp_jwtPrivateKey",
+  "db": "VideoClupApp_db"
 }
