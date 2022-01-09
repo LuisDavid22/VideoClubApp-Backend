@@ -13,5 +13,6 @@ const port = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => winston.info(`Listening on port ${port}...`));
+  app.listen(port, () => winston.info(`Using connStr ${config.get('db')}...`));
 }
 module.exports = app;
